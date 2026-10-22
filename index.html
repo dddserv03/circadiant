@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Circadiant Innovation Hub</title>
+    <title>Circadiant Innovations Client Hub</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -73,7 +73,7 @@
         }
 
         .profile-title {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
             color: var(--white);
             margin-bottom: 6px;
@@ -122,9 +122,17 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
+        .btn-link.bold-cap {
+            font-weight: 800;
+            text-transform: UPPERCASE;
+            letter-spacing: 1px;
+            color: var(--gold);
+        }
+
         .btn-link:hover, .btn-link:active {
             background-color: var(--maroon);
             border-color: var(--gold);
+            color: var(--white);
             transform: translateY(-2px);
             box-shadow: 0 6px 18px rgba(128, 0, 0, 0.4), 0 0 10px rgba(212, 175, 55, 0.3);
         }
@@ -160,14 +168,15 @@
         .social-bar {
             display: flex;
             justify-content: center;
-            gap: 14px;
+            gap: 10px;
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            flex-wrap: wrap;
         }
 
         .social-icon {
-            width: 44px;
-            height: 44px;
+            width: 42px;
+            height: 42px;
             border-radius: 12px;
             background-color: var(--gray-card);
             border: 1px solid rgba(212, 175, 55, 0.2);
@@ -176,8 +185,9 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 17px;
             transition: all 0.2s ease;
+            cursor: pointer;
         }
 
         .social-icon:hover {
@@ -194,13 +204,13 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(6px);
             display: none;
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            padding: 16px;
+            padding: 12px;
         }
 
         .modal-card {
@@ -208,8 +218,8 @@
             border: 1px solid var(--gold);
             border-radius: 18px;
             width: 100%;
-            max-width: 600px;
-            max-height: 85vh;
+            max-width: 680px;
+            max-height: 90vh;
             display: flex;
             flex-direction: column;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
@@ -217,7 +227,7 @@
         }
 
         .modal-header {
-            padding: 18px 20px;
+            padding: 16px 20px;
             background-color: var(--black);
             border-bottom: 1px solid var(--border-gold);
             display: flex;
@@ -238,7 +248,7 @@
             background: none;
             border: none;
             color: var(--gray-light);
-            font-size: 20px;
+            font-size: 22px;
             cursor: pointer;
         }
 
@@ -246,46 +256,61 @@
             color: var(--white);
         }
 
+        .search-box {
+            padding: 12px 20px;
+            background: var(--gray-card);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 14px;
+            background-color: var(--black);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            color: var(--white);
+            font-size: 13px;
+            outline: none;
+        }
+
         .modal-body {
-            padding: 20px;
+            padding: 16px;
             overflow-y: auto;
         }
 
         .excel-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 13px;
+            font-size: 12px;
             color: var(--white);
         }
 
         .excel-table th {
             background-color: var(--maroon);
             color: var(--white);
-            padding: 10px;
+            padding: 8px 10px;
             text-align: left;
             font-weight: 600;
             border: 1px solid rgba(255,255,255,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 2;
         }
 
         .excel-table td {
-            padding: 10px;
+            padding: 8px 10px;
             border: 1px solid rgba(255,255,255,0.08);
             background-color: rgba(255,255,255,0.02);
+            vertical-align: top;
         }
 
         .excel-table tr:nth-child(even) td {
             background-color: rgba(255,255,255,0.05);
         }
 
-        .badge-lock {
-            display: inline-block;
-            background: rgba(212, 175, 55, 0.15);
+        .badge-srp {
             color: var(--gold);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 11px;
-            margin-bottom: 12px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            font-weight: 700;
         }
 
         .footer-tag {
@@ -293,6 +318,23 @@
             color: var(--gray-light);
             margin-top: 20px;
             letter-spacing: 0.5px;
+        }
+
+        /* Toast Popup */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--black);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 13px;
+            display: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            z-index: 2000;
         }
     </style>
 </head>
@@ -305,28 +347,28 @@
         </div>
 
         <!-- Header Information -->
-        <h1 class="profile-title">Circadiant Innovation Hub</h1>
+        <h1 class="profile-title">Circadiant Innovations Client Hub</h1>
         <p class="profile-subtitle">Smart Systems & Security</p>
         <p class="profile-desc">
-            Authorized Installer, Seller & Service Center for Loock, Larx, Philips, Samsung, EZVIZ, Lenovo & Epic Smart Lock Systems.
+            Smart home automation, electronic security, custom IoT, servers, and complete IT network solutions for home and business. Sold & serviced locally.
         </p>
 
         <!-- Main Action Buttons -->
         <div class="links-container">
-            <!-- 1. Save Contact Button -->
-            <button class="btn-link" onclick="downloadVCard()">
+            <!-- 1. Save Contact Button (Direct Dial / Add to Contact) -->
+            <a href="tel:+639910084232" class="btn-link bold-cap" onclick="directContactAction(event)">
                 <div class="btn-content">
-                    <i class="fa-solid fa-address-card btn-icon"></i>
-                    <span>Save Contact</span>
+                    <i class="fa-solid fa-address-book btn-icon"></i>
+                    <span>SAVE CONTACT</span>
                 </div>
                 <i class="fa-solid fa-chevron-right arrow-icon"></i>
-            </button>
+            </a>
 
-            <!-- 2. Product Catalogue Button -->
+            <!-- 2. Product Catalogue Button (CI Pricelist) -->
             <button class="btn-link" onclick="openModal('catalogueModal')">
                 <div class="btn-content">
                     <i class="fa-solid fa-file-excel btn-icon"></i>
-                    <span>Product Catalogue</span>
+                    <span>CI Pricelist & Catalogue</span>
                 </div>
                 <i class="fa-solid fa-chevron-right arrow-icon"></i>
             </button>
@@ -350,7 +392,7 @@
             </a>
         </div>
 
-        <!-- Social Bar -->
+        <!-- Social & Quick Contact Bar -->
         <div class="social-bar">
             <!-- WhatsApp (09384127208) -->
             <a href="https://wa.me/639384127208" target="_blank" class="social-icon" title="WhatsApp">
@@ -360,7 +402,11 @@
             <a href="viber://chat?number=%2B639384127208" class="social-icon" title="Viber">
                 <i class="fa-brands fa-viber"></i>
             </a>
-            <!-- Facebook -->
+            <!-- Messenger -->
+            <a href="https://m.me/61593718833166" target="_blank" class="social-icon" title="Messenger">
+                <i class="fa-brands fa-facebook-messenger"></i>
+            </a>
+            <!-- Facebook Page -->
             <a href="https://www.facebook.com/profile.php?id=61593718833166" target="_blank" class="social-icon" title="Facebook">
                 <i class="fa-brands fa-facebook-f"></i>
             </a>
@@ -368,93 +414,107 @@
             <a href="mailto:circadiant.innovations@gmail.com" class="social-icon" title="Email">
                 <i class="fa-solid fa-envelope"></i>
             </a>
+            <!-- Share Hub Page -->
+            <button class="social-icon" onclick="shareHubPage()" title="Share Page">
+                <i class="fa-solid fa-share-nodes"></i>
+            </button>
         </div>
 
-        <p class="footer-tag">&copy; Circadiant Innovations. All Rights Reserved.</p>
+        <p class="footer-tag">&copy; 2026 Circadiant Innovations. All Rights Reserved.</p>
     </div>
 
-    <!-- Product Catalogue Modal (Locked Excel Viewer) -->
+    <!-- Product Catalogue Modal (CI Pricelist) -->
     <div id="catalogueModal" class="modal-overlay">
         <div class="modal-card">
             <div class="modal-header">
                 <div class="modal-title">
                     <i class="fa-solid fa-file-excel" style="color: #21a366;"></i>
-                    <span>Loock & Larx Product Catalogue</span>
+                    <span>CI Official Product Catalogue & Pricelist</span>
                 </div>
                 <button class="close-btn" onclick="closeModal('catalogueModal')">&times;</button>
             </div>
+            <div class="search-box">
+                <input type="text" id="catalogueSearch" class="search-input" placeholder="Search Brand, Model, or Feature (e.g. Loock, Fingerprint, Doorbell)..." onkeyup="filterCatalogue()">
+            </div>
             <div class="modal-body">
-                <div class="badge-lock">
-                    <i class="fa-solid fa-lock"></i> Edit Locked • Read-Only Viewer
-                </div>
-                
-                <table class="excel-table">
+                <table class="excel-table" id="pricelistTable">
                     <thead>
                         <tr>
                             <th>Brand</th>
-                            <th>Model / Product</th>
-                            <th>Category</th>
-                            <th>Status</th>
+                            <th>Model</th>
+                            <th>Type / Features</th>
+                            <th>SRP</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Loock</strong></td>
-                            <td>Classic 2S Smart Lock</td>
-                            <td>Fingerprint / App Lock</td>
-                            <td>In Stock</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Loock</strong></td>
-                            <td>S30 Pro Palm Recognition</td>
-                            <td>Face / Palm Smart Lock</td>
-                            <td>In Stock</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Loock</strong></td>
-                            <td>Cat Eye Video Doorbell</td>
-                            <td>Smart Security Doorbell</td>
-                            <td>Available</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Larx</strong></td>
-                            <td>Larx Smart System Server</td>
-                            <td>Automation Controller</td>
-                            <td>In Stock</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Larx</strong></td>
-                            <td>Larx RFID Access Tags</td>
-                            <td>13.56MHz Smart Cards</td>
-                            <td>In Stock</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Philips</strong></td>
-                            <td>EasyKey 9300 / 702 Series</td>
-                            <td>Push-Pull Smart Lock</td>
-                            <td>In Stock</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Samsung</strong></td>
-                            <td>SHP-DP609 & Smart Bidet</td>
-                            <td>Smart Lock & Hygiene</td>
-                            <td>In Stock</td>
-                        </tr>
-                        <tr>
-                            <td><strong>EZVIZ</strong></td>
-                            <td>C8W Pro / Doorbell Series</td>
-                            <td>CCTV & Monitoring</td>
-                            <td>In Stock</td>
-                        </tr>
+                    <tbody id="catalogueBody">
+                        <!-- Populated dynamically with exact CI Pricelist data -->
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 
+    <div id="toast" class="toast">Link Copied to Clipboard!</div>
+
     <script>
-        // vCard Generation & Download
-        function downloadVCard() {
+        // Official CI Pricelist Data
+        const ciPricelist = [
+            {brand:"Loock", model:"A-01", type:"DeadBolt Type", srp:"₱5,999", feat:"Password, RFID Card, Fingerprint, E-Power, Tuya App, Mech Key"},
+            {brand:"Loock", model:"A-04", type:"AirBNB & Apartment", srp:"₱5,999", feat:"Password, RFID Card, Fingerprint, Tuya App, Mech Key"},
+            {brand:"Loock", model:"A-05", type:"AirBNB & Apartment", srp:"₱5,999", feat:"Password, RFID Card, Fingerprint, TTLock App, Mech Key"},
+            {brand:"Loock", model:"A-10", type:"Single Latch Type", srp:"₱6,999", feat:"Password, RFID Card, Fingerprint, TTLock App"},
+            {brand:"Loock", model:"A-11", type:"Secondary Type", srp:"₱6,999", feat:"Password, RFID Card, Fingerprint, TTLock App"},
+            {brand:"Loock", model:"A-12", type:"Approved Blue Gem Series", srp:"₱6,999", feat:"Password, RFID Card, Fingerprint, TTLock App"},
+            {brand:"Loock", model:"B-02", type:"Bedroom Type", srp:"₱5,499", feat:"Password, RFID Card, Fingerprint, TTLock App"},
+            {brand:"Loock", model:"B-11", type:"E-COM Version", srp:"₱5,999", feat:"Password, RFID Card, Fingerprint, BP App Control"},
+            {brand:"Loock", model:"DB2", type:"Video Intercom Doorbell", srp:"Inquire", feat:"Door Bell, TTLock App, Motion Sensor, Intercom, Gateway"},
+            {brand:"Loock", model:"G-01", type:"Glass Door E-COM Version", srp:"₱5,999", feat:"Password, RFID Card, Fingerprint, TTLock App"},
+            {brand:"Loock", model:"G-01B", type:"Frosted Magnetic Glass Door", srp:"₱13,499", feat:"3D Facial Recognition, Password, Fingerprint, TTLock"},
+            {brand:"Loock", model:"H-01", type:"Heavy Duty Type", srp:"₱8,999", feat:"Fingerprint, Password, RFID, TTLock App, Mech Key"},
+            {brand:"Loock", model:"H-02", type:"Hotel Type (T5577)", srp:"Inquire", feat:"Hotel Management System, T5577 Card Access"},
+            {brand:"Loock", model:"H-03", type:"Hotel Type (M1)", srp:"Inquire", feat:"Hotel System, M1 RFID Card Access"},
+            {brand:"Loock", model:"K-01", type:"Single Latch Handle", srp:"₱5,999", feat:"Password, Fingerprint, TTLock App"},
+            {brand:"Loock", model:"N-01", type:"Aluminum / Narrow Glass", srp:"₱7,999", feat:"Narrow Stile, Fingerprint, RFID, TTLock App"},
+            {brand:"Loock", model:"R-01", type:"Automatic Push-Pull", srp:"₱9,999", feat:"Push-Pull Auto Lock, Fingerprint, TTLock App"},
+            {brand:"Loock", model:"S-01", type:"Sliding Door Heavy Duty", srp:"₱9,999", feat:"Hook Mortise for Sliding Door, Fingerprint, TTLock"},
+            {brand:"Loock", model:"V-01", type:"Face Recognition Push-Pull", srp:"₱14,999", feat:"3D Face Recognition, Built-in Camera, Screen, App"},
+            {brand:"Larx", model:"L-RFID", type:"Access Control Tag", srp:"₱150", feat:"13.56MHz Smart Keyfob for Lock Systems"},
+            {brand:"Philips", model:"EasyKey 9300", type:"Flagship Push-Pull", srp:"Inquire", feat:"Biometric Fingerprint, Gateway, Bluetooth, Wireless Unlocking"},
+            {brand:"Philips", model:"702 Series", type:"Video Smart Lock", srp:"Inquire", feat:"Built-in Video Doorbell, Wi-Fi Direct, Fingerprint"},
+            {brand:"Samsung", model:"SHP-DP609", type:"IoT Smart Door Lock", srp:"Inquire", feat:"Wi-Fi App Unlock, Fingerprint, PIN, Keytag, Real-time status"},
+            {brand:"EZVIZ", model:"C8W Pro", type:"360° Pan/Tilt Outdoor Camera", srp:"Inquire", feat:"2K Resolution, AI Human/Vehicle Detection, Auto Tracking"},
+            {brand:"Lenovo", model:"Smart Monitor", type:"Security Monitor Series", srp:"Inquire", feat:"HD Surveillance Display, High Refresh Rate"}
+        ];
+
+        // Populate Catalogue Table
+        function renderCatalogue() {
+            const tbody = document.getElementById('catalogueBody');
+            tbody.innerHTML = '';
+            ciPricelist.forEach(item => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${item.brand}</strong></td>
+                    <td><strong>${item.model}</strong><br><small style="color:var(--gray-light);">${item.type}</small></td>
+                    <td>${item.feat}</td>
+                    <td class="badge-srp">${item.srp}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Search Filter
+        function filterCatalogue() {
+            const input = document.getElementById('catalogueSearch').value.toLowerCase();
+            const rows = document.querySelectorAll('#catalogueBody tr');
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                row.style.display = text.includes(input) ? '' : 'none';
+            });
+        }
+
+        // Direct Contact Action (Direct Prompt / vCard Option)
+        function directContactAction(e) {
+            // Generates and downloads vCard on device while offering prompt
             const vcardData = `BEGIN:VCARD
 VERSION:3.0
 N:Piadoche;Joren Adrian;;;
@@ -466,7 +526,7 @@ TEL;TYPE=CELL,VOICE:+639384127208
 EMAIL;TYPE=PREF,INTERNET:circadiant.innovations@gmail.com
 ADR;TYPE=WORK:;;Door #1, GTAN Commercial Bldg., 47 Mabini St.;Bacolod City;;;Philippines
 URL:https://www.facebook.com/profile.php?id=61593718833166
-NOTE:Authorized Installer & Service Center for Loock, Larx, Philips, Samsung, EZVIZ, Lenovo, and Epic Smart Locks.
+NOTE:Smart home automation, electronic security, custom IoT, servers, and complete IT network solutions.
 END:VCARD`;
 
             const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8;' });
@@ -477,6 +537,27 @@ END:VCARD`;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
+        }
+
+        // Share Page Function
+        function shareHubPage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Circadiant Innovations Client Hub',
+                    text: 'Connect with Circadiant Innovations - Smart Systems & Security',
+                    url: window.location.href
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                showToast("Hub Link Copied to Clipboard!");
+            }
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.innerText = msg;
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.display = 'none'; }, 2500);
         }
 
         // Modal Controls
@@ -493,6 +574,9 @@ END:VCARD`;
                 event.target.style.display = 'none';
             }
         }
+
+        // Initialize on load
+        window.onload = renderCatalogue;
     </script>
 </body>
 </html>
